@@ -1,0 +1,35 @@
+
+.todo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* adjust the number of columns as needed */
+    gap: 20px; /* adjust the gap between items as needed */
+}
+  
+.todo-item {
+    background-color: #f0f0f0; /* adjust the background color as needed */
+    padding: 20px; /* adjust the padding as needed */
+    border-radius: 10px; /* adjust the border radius as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.todo-item input[type="checkbox"] {
+    margin-bottom: 10px; /* adjust the margin as needed */
+}
+  
+.todo-item span {
+    font-size: 18px; /* adjust the font size as needed */
+    margin-bottom: 10px; /* adjust the margin as needed */
+}
+  
+.todo-item button {
+    background-color: #ff0000; /* adjust the background color as needed */
+    color: #ffffff; /* adjust the text color as needed */
+    border: none; /* adjust the border as needed */
+    padding: 10px 20px; /* adjust the padding as needed */
+    border-radius: 5px; /* adjust the border radius as needed */
+    cursor: pointer; /* adjust the cursor as needed */
+}
+  
+  

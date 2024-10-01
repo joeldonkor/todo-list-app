@@ -1,0 +1,432 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: ui-sans-serif,system-ui,sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+    /* z-index: 1; */
+    width: 100%;
+    height: 350px;
+    background-color: #581c87;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #581c87, #3730a3); 
+    padding-top: 10px;
+}
+
+.wrapper-below {
+    position: relative;
+    top:300px ;
+    width: 100%;
+    height: 400px; 
+    background-color:rgb(209, 213, 219);
+    box-shadow: 0 4px 8px   
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.app-container {
+    position: relative;
+    top: -200px;
+    left: 20px;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    transition: background-color 0.3s, color 0.3s;      
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: 1.5rem;
+    padding-bottom: 20px;  
+   
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 2rem;   
+}
+form.todo-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: .5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.input-container {
+    display: flex;
+    flex: 1;
+    position: relative;
+    width: 100%;
+}
+
+form.todo-form input[type="text"] {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    flex: 1;
+    padding: 10px 50px 10px 15px;
+    font-size: 16px;
+    margin-right: 10px;
+    height: 3.5rem;
+    width: 100%;
+    border-radius: 8px;
+    --tw-border-opacity: 1;
+    border-color: rgb(31 41 55 / var(--tw-border-opacity));
+    
+}
+
+form.todo-form button {
+    font-weight: 500px;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    font-size: 1.2rem;
+    line-height: 1.75rem;
+    border-radius: .375rem;
+    background-color: #581c87;
+    color: #fff;
+    border: none;
+    top: 50%;
+    right: 2.5rem;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+form.todo-form button.add-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 80%;
+    padding: 0 15px;
+    font-size: 1.2rem;
+    background-color: #3730a3;
+    color: #fff;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    /* justify-content: flex-end; */
+    margin-top: 2px;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-left: auto;
+    align-items: center;
+    /* font-size: 3rem; */
+}
+
+.buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center; /*this was commented out */
+    padding: 5px;
+    color: #000; 
+    /* transition: color 0.3s ease, transform 0.3s ease;  */
+    font-size: 1.5rem;
+    padding-top: auto;
+    margin-top: -4px;
+    
+}
+
+.buttons button:hover {  
+    background-color: #a0aec0;
+    transform: scale(1.1); 
+}
+
+.buttons button.dark-mode {
+    color: #e0e0e0; 
+}
+
+.buttons button.dark-mode:hover {
+    color: #555; 
+    transform: scale(1.1); 
+}
+
+.todo-container {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    /* padding: 20px;  */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    height: 300px;
+    max-width: 800px;
+    align-items: flex-start;
+    justify-content: flex-start;
+   
+    border-radius: .5rem;
+    border-color: rgb(107 114 128);
+    top: -4rem;
+    z-index: 10;
+    border: 1px solid rgb(107, 114, 128);
+    overflow: hidden;
+    padding-right: 10px;
+    overflow-y: auto; 
+}
+.todo-container::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.todo-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar */
+    border-radius: 10px;
+}
+  
+.todo-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+.dark-mode .todo-container {
+    background-color: #333;
+    border-color: #555;
+}
+
+.todo-grid {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 10px; 
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 100%;    
+}
+
+.dark-mode .todo-item {
+    background-color: #444;
+    color: #fff;
+}
+
+.todo-item span {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+    text-align: left; 
+    margin-bottom: 0px;
+    width: 100%;
+    margin-right: auto;
+} 
+
+   
+
+.todo-grid button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dark-mode-icon {
+    /* position: absolute;  */
+    font-size: 1.5rem;
+    line-height: 2rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(229 231 235);
+    border-radius: .375rem;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+
+} 
+
+.app-container.dark-mode {
+    
+    color: #fff;
+}
+  
+.app-container.dark-mode .todo-form {
+    background-color: #444;
+}
+  
+.app-container.dark-mode .todo-container {
+    background-color: #555;
+    border-color: #555;
+}
+
+  
+.app-container.dark-mode .todo-item {
+    background-color: #666;
+}
+  
+.app-container.dark-mode .todo-item span {
+    color: #fff;
+}
+  
+.app-container.dark-mode .todo-item button {
+    color: #fff;
+}
+  
+.app-container.dark-mode .dark-mode-icon {
+    background-color: #181818;
+} 
+
+
+.wrapper.dark-mode {
+    background: linear-gradient(to right, #3a2a6e, #2a1a5e);
+    
+}
+
+.wrapper-below.dark-mode {
+    background-color: #181818;
+}
+ 
+
+h1.dark-mode {
+    color: #e0e0e0;
+} 
+
+.todo-form input[type="text"].dark-mode {
+    background-color: #444;
+    color: #e0e0e0;
+    border-color: #666;
+}
+
+.todo-form button.add-button.dark-mode {
+    background-color: #555;
+    color: #e0e0e0;
+}
+
+.todo-container.dark-mode {
+    background-color: #444;
+    border-color: #555;
+}
+
+.task-length {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: inherit;
+}
+  
+.delete-all {
+    color: red;
+    font-size: 2rem;
+    cursor: pointer;
+    border: 1px solid red;
+    padding: 2px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+  
+.delete-all:hover {
+    background-color: red;
+    color: white;
+}
+.todo-text {
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 500px;
+    flex: 1; 
+    text-align: left;
+    line-height: 1.5rem;
+    margin-right: auto;
+    width: 100%;
+
+    /* padding-right: 600px; */
+
+    
+}
+.save-button {
+    margin-left: auto;
+    margin-top: auto;  
+}
+.edit-input {
+    width: 650px; /* Set desired width */
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.dark-mode .buttons button:hover {
+    color: #000; 
+    transform: scale(1.1); 
+}
+  
+.buttons button.delete-button {
+    margin-top: -4px;
+    top: auto;
+}
+.list { 
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    /* justify-content: flex-start; */
+    /* justify-content: flex-start; */
+    margin-top: 2px;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-left: auto;
+    width: 100%;
+    align-items: center;
+    
+}
+.edit-list {
+    display: flex;
+    gap: 10px;
+    /* justify-content: flex-end; */
+    margin-top: 2px;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-left: auto;
+    align-items: center;
+}
+
+
+ 
+
+
+
+
